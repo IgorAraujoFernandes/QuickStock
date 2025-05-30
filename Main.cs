@@ -1,6 +1,6 @@
 namespace main;
 
-public class Produto
+public class Product
 {
     public int ID { get; set; }
     public string Nome { get; set; }
