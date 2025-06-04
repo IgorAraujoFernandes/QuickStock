@@ -1,3 +1,5 @@
 .idea/
-bin/
-obj/
+.vs
+Backend\.vs
+Backend\.idea
+bin
