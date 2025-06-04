@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickStock</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <section id="telaListagem" class="tela ativa">
+    <h1>Listagem</h1>
+    <button onclick="mostrarCadastro()">Cadastrar novo produto</button>
+    <ul id="listaProdutos"></ul>
+  </section>
+
+  <section id="telaCadastro" class="tela">
+    <h1>Cadastro</h1>
+    <button onclick="mostrarListagem()">Voltar para listagem</button>
+    <form id="formCadastro">
+      <input type="text" name="name" placeholder="Nome"  />
+      <input type="text" name="description" placeholder="Descricao"  />
+      <input type="number" name="price" placeholder="Valor (Sem vírgula)" />
+      <input type="number" name="quantity" placeholder="Quantia Inicial"  />
+      
+      <p>Disponível?</p>
+      <label><input type="radio" name="avaliable" value="1" checked /> Sim</label>
+      <label><input type="radio" name="avaliable" value="0" /> Não</label>
+      
+      <button type="submit">Finalizar cadastro</button>
+    </form>
+  </section>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
