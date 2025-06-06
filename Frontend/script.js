@@ -23,19 +23,23 @@ window.mostrarListagem = async function() {
 
     const produtos = await response.json();
 
+    produtos.sort((a, b) => a.price - b.price);
+
     const ul = document.getElementById('listaProdutos');
     ul.innerHTML = '';
 
     produtos.forEach(produto => {
       const li = document.createElement('li');
-      const disponivel = produto.avaliable === 1;
-      li.textContent = `${produto.name} - ${produto.description} - R$${produto.price.toFixed(2)} - Quantidade: ${produto.quantity} - Disponível: ${disponivel ? 'Sim' : 'Não'}`;
+      const disponivel = produto.avaliable === true || produto.avaliable === 'true' || produto.avaliable === 1 || produto.avaliable === '1';
+      const preco = produto.price/100;
+      li.textContent = `${produto.name} - ${produto.description} - R$${preco.toFixed(2)} - Quantidade: ${produto.quantity} - Disponível: ${disponivel ? 'Sim' : 'Não'}`;
       ul.appendChild(li);
     });
   } catch (error) {
     console.error('Erro ao carregar produtos:', error);
   }
 }
+
 
 window.Finalizar = async function(produto) {
   try {
@@ -59,8 +63,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
 
   const nome = this.elements['name'].value.trim();
   const descricao = this.elements['description'].value.trim();
-  let precoI = parseInt(this.elements['price'].value);
-  const preco = precoI/100;
+  let preco = parseInt(this.elements['price'].value);
   const quantidade = parseInt(this.elements['quantity'].value, 10);
 
   const radios = this.elements['avaliable'];
