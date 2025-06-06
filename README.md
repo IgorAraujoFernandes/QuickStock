@@ -7,7 +7,11 @@
 ### 📦 Product Management
 - Register new products.
 - List all products.
-- Check availability.
+- Check avaliability.
+
+## 📚 Instructions
+
+- You must run `dotnet run` in the root folder of the project using the terminal.
 
 ## 🛠️ Technologies and Tools Used
 
@@ -15,11 +19,12 @@
 - C#
 - ASP.NET Core
 - Entity Framework Core
+- JSON Serialization
 
 ### 🎨 Frontend
 - HTML
 - CSS
-- JavaScript
+- JavaScript (Fetch API)
 
 ### 🛢️ Database
 - SQLite
@@ -28,3 +33,5 @@
 ### 💾 Code Versioning
 - Git
 - GitHub
+
+
