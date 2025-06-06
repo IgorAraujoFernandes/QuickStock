@@ -1,14 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using BackEnd.Models;
 
-namespace BackEnd.Data;
-
-public class QuickSortContext :DbContext
+namespace BackEnd.Data
 {
-    
-    public DbSet<Product> Products { get; set; }
+    public class QuickSortContext : DbContext
+    {
+        public QuickSortContext()
+        {
+        }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source=Data/base.db");
-    
+        public QuickSortContext(DbContextOptions<QuickSortContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Product> Products { get; set; }
+    }
 }
-

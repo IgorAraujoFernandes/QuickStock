@@ -1,31 +1,27 @@
-using System;
-using Microsoft.EntityFrameworkCore;
-using BackEnd.Models;
-using System.Collections.Generic;
-using Microsoft.Extensions.WebEncoders.Testing;
 using BackEnd.Data;
-using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
-public class Launcher
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<QuickSortContext>(options =>
+    options.UseSqlite("Data Source=Data/base.db"));
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
 {
-    public static void Main(string[] args)
-    {
-
-        Product product2 = new Product("Suco", "Laranja", 10, 2, 1);
-
-        using var context = new QuickSortContext();
-
-        try
-        {
-
-            var select = context.Products.Find(1);
-            Console.WriteLine(select);     
-        }
-        catch(Exception ex)
-        {
-            Console.WriteLine(ex);
-        }
-       
-    }
-
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+
+app.Run();

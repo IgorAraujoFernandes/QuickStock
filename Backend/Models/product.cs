@@ -16,15 +16,13 @@ namespace BackEnd.Models;
 
     public Product( string name, string desc, int price, int quant, int av)
     {
-
-        
         Name = name;
         Description = desc;
         Price = price;
         Quantity = quant;
         Avaliable = av;
     }  
-    
+   
      public int Id { get; set; }
      public string Name { get; set; } = string.Empty;
      public string Description { get; set; } = string.Empty;
@@ -36,9 +34,4 @@ namespace BackEnd.Models;
     {
         return JsonSerializer.Serialize(this);
     }
-
-   
-
-
-
 }

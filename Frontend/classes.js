@@ -1,10 +1,10 @@
 export class Product {
     
-  constructor(name, desc, price, quant, avaliable){
+  constructor(name, description, price, quantity, avaliable){
     this.name = name;
-    this.desc = desc;
+    this.description = description;
     this.price = price;
-    this.quant = quant;
+    this.quantity = quantity;
     this.avaliable = avaliable;
   }
 }
