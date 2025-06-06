@@ -62,7 +62,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
   const descricao = this.elements['description'].value.trim();
   const preco = parseFloat(this.elements['price'].value);
   const quantidade = parseInt(this.elements['quantity'].value, 10);
-  const available = this.elements['available'].value === 'true';
+  const available = this.elements['avaliable'].value === 'true';
 
   const novoProduto = new Product(nome, descricao, preco, quantidade, available);
 

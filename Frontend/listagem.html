@@ -22,8 +22,8 @@
     <form id="formCadastro">
       <input type="text" name="name" placeholder="Nome" required />
       <input type="text" name="description" placeholder="Descrição" required />
-      <input type="number" name="price" placeholder="Valor (ex: 100)" required />
-      <input type="number" name="quantity" placeholder="Quantidade Inicial" required />
+      <input type="number" name="price" placeholder="Valor (ex: 100)" required min ="0" />
+      <input type="number" name="quantity" placeholder="Quantidade Inicial" required min ="0"/>
       <p>Disponível?</p>
       <label><input type="radio" name="avaliable" value="1" checked /> Sim</label>
       <label><input type="radio" name="avaliable" value="0" /> Não</label>

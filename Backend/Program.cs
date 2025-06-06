@@ -6,8 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
-        policy.WithOrigins("http://127.0.0.1:5500") 
-              .AllowAnyMethod());
+        policy.WithOrigins("http://127.0.0.1:5500")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+    );
 });
 
 builder.Services.AddDbContext<QuickSortContext>(options =>
