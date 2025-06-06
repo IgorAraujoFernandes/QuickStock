@@ -1,10 +1,10 @@
 export class Product {
-  constructor(name, description, price, quantity, available) {
+  constructor(name, description, price, quantity, avaliable) {
     this.name = name;
     this.description = description;
     this.price = price;
     this.quantity = quantity;
-    this.available = available;
+    this.avaliable = avaliable; // deve ser 1 ou 0
   }
 }
 
@@ -28,7 +28,8 @@ window.mostrarListagem = async function() {
 
     produtos.forEach(produto => {
       const li = document.createElement('li');
-      li.textContent = `${produto.name} - ${produto.description} - R$${produto.price.toFixed(2)} - Quantidade: ${produto.quantity} - Disponível: ${produto.available ? 'Sim' : 'Não'}`;
+      const disponivel = produto.avaliable === 1;
+      li.textContent = `${produto.name} - ${produto.description} - R$${produto.price.toFixed(2)} - Quantidade: ${produto.quantity} - Disponível: ${disponivel ? 'Sim' : 'Não'}`;
       ul.appendChild(li);
     });
   } catch (error) {
@@ -48,8 +49,6 @@ window.Finalizar = async function(produto) {
       const errorText = await response.text();
       throw new Error(`Erro na API: ${errorText}`);
     }
-
-    console.log('Produto cadastrado:', produto);
   } catch (error) {
     console.error('Erro ao cadastrar produto:', error);
   }
@@ -60,11 +59,22 @@ document.getElementById('formCadastro').addEventListener('submit', function(even
 
   const nome = this.elements['name'].value.trim();
   const descricao = this.elements['description'].value.trim();
-  const preco = parseFloat(this.elements['price'].value);
+  let precoI = parseInt(this.elements['price'].value);
+  const preco = precoI/100;
   const quantidade = parseInt(this.elements['quantity'].value, 10);
-  const available = this.elements['avaliable'].value === 'true';
 
-  const novoProduto = new Product(nome, descricao, preco, quantidade, available);
+  const radios = this.elements['avaliable'];
+  let selectedValue = '0';
+  for (let radio of radios) {
+    if (radio.checked) {
+      selectedValue = radio.value; 
+      break;
+    }
+  }
+  
+  const avaliableInt = parseInt(selectedValue, 10);
+
+  const novoProduto = new Product(nome, descricao, preco, quantidade, avaliableInt);
 
   Finalizar(novoProduto).then(() => {
     this.reset();

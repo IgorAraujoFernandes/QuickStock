@@ -1,10 +1,11 @@
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Text.Json.Serialization;
-using Microsoft.EntityFrameworkCore;
-using System.Text.Json;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SQLite;
+using System.Net;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace BackEnd.Models;
  
@@ -28,7 +29,7 @@ namespace BackEnd.Models;
      public string Description { get; set; } = string.Empty;
      public int Price { get; set; }
      public int Quantity { get; set; }
-     public int Avaliable { get; set; }
+    public int Avaliable { get; set; }
 
     public override string ToString()
     {
