@@ -12,6 +12,7 @@
 ## 📚 Instructions
 
 - You must run `dotnet run` in the root folder of the project using the terminal.
+- You must open `listagem.html` using Live Server.
 
 ## 🛠️ Technologies and Tools Used
 
