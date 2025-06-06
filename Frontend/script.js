@@ -10,9 +10,21 @@ window.mostrarListagem = function() {
   document.getElementById("telaListagem").classList.add("ativa");
 }
 
-window.Finalizar = function(produto) {
+window.Finalizar = async function(produto) {
   const jsonProduto = JSON.stringify(produto);
+  try{
+  const response = await fetch('http://localhost:5000/product', { 
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: jsonProduto
+  });
   console.log(jsonProduto);
+}
+catch (error){
+  console.log(`erro:${error.message}`);
+}
 }
 
 document.getElementById('formCadastro').addEventListener('submit', function(event){
