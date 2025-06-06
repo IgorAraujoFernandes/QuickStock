@@ -1,7 +1,7 @@
 body {
   background-color: #121212;
   color: #ffffff;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -15,7 +15,7 @@ body {
   border: 2px solid #2e2e2e;
   border-radius: 10px;
   padding: 1.5rem;
-  width: 350px;
+  width: 500px;
   background-color: #1f1f1f;
 }
 

@@ -48,5 +48,12 @@ namespace BackEnd.Controllers
             var products = await _context.Products.ToListAsync();
             return Ok(products);
         }
+
+        [HttpGet("list")]
+        public async Task<IActionResult> GetProductList()
+        {
+            var products = await _context.Products.ToListAsync();
+            return Ok(products);
+        }
     }
 }
